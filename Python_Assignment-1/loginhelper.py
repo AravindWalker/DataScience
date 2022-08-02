@@ -110,7 +110,7 @@ class LoginHelp:
     def pass_auth(self): # checking password is in format or not
 
         pass_set=set(self.password)
-        if len(self.password)>=8:
+        if len(self.password)>=8 and len(self.password)<=16:
             if pass_set.intersection(set(string.ascii_uppercase)) and \
                     pass_set.intersection(set(string.ascii_lowercase)) and \
                     pass_set.intersection(set(string.digits)) and \
