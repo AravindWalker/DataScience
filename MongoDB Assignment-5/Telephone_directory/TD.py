@@ -2,20 +2,19 @@ import pymongo
 
 
 class TelDirectory:
-    def __init__(self, ch):
-        self.client = pymongo.MongoClient(
-            "mongodb+srv://Aravind:8919072201@guvi-ds.6tybdko.mongodb.net/?retryWrites=true&w=majority")
+    def __init__(self, serv_id, ch):
+        self.client = pymongo.MongoClient(serv_id)
         self.db = self.client.Telephone_directory
         self.records = self.db.Contact_list
-        self.ch = ch.lower()
+        self.ch = ch
         self.choice()
 
     def choice(self):
-        if self.ch == "create":
+        if self.ch == "Create":
             self.create()
-        elif self.ch == "read":
+        elif self.ch == "Read":
             self.read()
-        elif self.ch == "update":
+        elif self.ch == "Update":
             self.update()
         else:
             self.delete()
